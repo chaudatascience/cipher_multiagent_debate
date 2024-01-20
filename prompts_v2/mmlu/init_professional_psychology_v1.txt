@@ -1,0 +1,47 @@
+Question: ```Which of the following statements best exemplifies criterion-referenced (as opposed to norm-referenced) measurement
+A. Alice answered 63% of the items correctly
+B. Susan’s score was average for her class
+C. James ranked at the 86th percentile on the Scholastic Aptitude Test (SAT)
+D. Joe received a z score of 1.6```
+
+Solution: ```Criterion-referenced measurement focuses on assessing an individual's performance based on predetermined criteria or standards. In this statement, Alice's performance is evaluated based on the percentage of items she answered correctly, which directly relates to the criteria of correctness. The criterion for success is set at 63%, and Alice's performance is measured against that criterion.
+Therefore, the answer is A.
+Answer: A```
+---
+
+Question: ```Group A and Group B each are composed of equal numbers of men and women. Both groups read a prose passage. Group A is told that it was written by a man, and Group B is told that it was written by a woman. Both groups then rate the quality of the prose. What are the likely results
+A. The males in Group B will rate the prose as significantly poorer than will the males in Group A
+B. The females in Group B will rate the prose as significantly poorer than will the females in Group A
+C. Group A will rate the prose as significantly better than will Group B
+D. The females in Group A will rate the prose 2s significantly poorer than will the females in Group B; the males in Group A will rare the prose as significantly better than will the males in Group B```
+
+Solution: ```The experiment involves telling each group of participants a different author's gender for the same prose passage. In this case, Group A is told that the passage was written by a man, while Group B is told it was written by a woman. The likely result is that Group A, who believes the passage was written by a man, will rate the prose as better compared to Group B, who believes it was written by a woman. This indicates a potential bias or preconceived notions about the quality of writing based on the author's gender.
+Therefore, the answer is C.
+Answer: C```
+​---
+
+Question: ```Dr. Blitz has been seeing a client for four months when the client says that he is very dissatisfied with the progress of therapy. To be consistent with the provisions of the ethics codes published by the American and Canadian Psychological Association, Dr. Blitz should:
+A. tell the client that he can't expect to make major changes in his life in only four months.
+B. encourage the client to schedule more frequent sessions so they can work more intensely on his problems.
+C. help the client work through his resistance.
+D. discuss the matter with the client and terminate therapy and provide him with referrals if he desires.```
+
+Solution: ```When a client expresses dissatisfaction with the progress of therapy, it is important for the psychologist to address the issue ethically. The appropriate course of action is to have an open and honest discussion with the client about their concerns. Dr. Blitz should explore the client's dissatisfaction, understand their perspective, and discuss potential options for addressing their needs. This may include terminating therapy and providing referrals to other professionals who may be better suited to meet the client's needs or addressing the concerns in a way that maintains the therapeutic relationship. Ultimately, the decision should be made collaboratively between Dr. Blitz and the client based on the client's best interests.
+Therefore, the answer is D.
+Answer: D```
+​---
+
+Question: ```The keyword method is most useful for:
+A. remembering word pairs.
+B. remembering a long list of unrelated words.
+C. recalling the order of mathematical operations.
+D. mastering spatial relationships.```
+
+Solution: ```The keyword method is a mnemonic strategy commonly used to remember word pairs or foreign vocabulary. It involves associating a familiar word or image (the keyword) with the target word or concept to be remembered. By creating a vivid mental connection between the keyword and the target word, it becomes easier to recall the information later. This method is particularly effective for memorizing word pairs or connecting new words with their meanings.
+Therefore, the answer is A.
+Answer: A```
+​---
+
+Question: ```{QUESTION_PLACEHOLDER}```
+
+Solution: ```

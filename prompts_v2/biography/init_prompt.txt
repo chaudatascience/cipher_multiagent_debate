@@ -1,0 +1,1 @@
+Give a bullet point biography of {QUESTION_PLACEHOLDER} highlighting their contributions and achievements as a computer scientist, with each fact separated with a new line character.

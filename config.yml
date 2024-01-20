@@ -1,0 +1,9 @@
+root_dir: "."
+llama2_model_path: "/projectnb/ivc-ml/chaupham/pretrained_models/llama2_hf/{model_name}"
+llama1_model_path: "llama_model/{model_name}"
+falcon_model_path: "falcon_huggingface/{model_name}"
+mpt_model_path: "mpt_huggingface/{model_name}"
+wizardmath_model_path: "wizardlm/{model_name}"
+
+emb_path: ""  # for ablation, just leave this blank
+other_emb_path: ""  # for ablation, just leave this blank

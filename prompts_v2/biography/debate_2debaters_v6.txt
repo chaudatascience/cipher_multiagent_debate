@@ -1,0 +1,9 @@
+Following is the discusion about {QUESTION_PLACEHOLDER}:
+
+Agent 1's answer: ```{OTHER_SOLUTION_PLACEHOLDER_0}```
+
+Your answer: ```{MY_SOLUTION_PLACEHOLDER}```
+
+From the information above, update and refine your answer. You need to give bullet point biography of the computer scientist {QUESTION_PLACEHOLDER} highlighting their contributions and achievements as a computer scientist, with each fact separated with a new line character. 
+
+Correct answer: ```

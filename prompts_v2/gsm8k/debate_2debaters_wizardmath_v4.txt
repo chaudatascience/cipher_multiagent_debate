@@ -1,0 +1,13 @@
+Below is an instruction that describes a task. Write a response that appropriately completes the request.
+
+### Instruction: 
+Use the responses below, answer the following math question.
+{QUESTION_PLACEHOLDER}
+
+### Agent 1's solution: 
+{OTHER_SOLUTION_PLACEHOLDER_0}
+
+### Your solution: 
+{MY_SOLUTION_PLACEHOLDER}
+
+### Response: Let's think step by step.

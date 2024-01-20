@@ -1,0 +1,17 @@
+numpy==1.24.3
+openai==0.27.2
+pandas==2.0.2
+python-dotenv==1.0.0
+torch==2.0.1
+tqdm==4.65.0
+transformers==4.33.1
+accelerate==0.20.3
+einops==0.6.1
+sentencepiece==0.1.99
+gpustat
+bayesian-optimization
+ipython
+ray==2.6.3
+optimum==1.13.1
+Fraction==2.2.0
+pyyaml==6.0

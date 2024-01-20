@@ -1,0 +1,6 @@
+Below is an instruction that describes a task. Write a response that appropriately completes the request.
+
+### Instruction:
+{QUESTION_PLACEHOLDER}
+
+### Response: Let's think step by step.

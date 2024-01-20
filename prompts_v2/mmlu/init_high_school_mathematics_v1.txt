@@ -1,0 +1,58 @@
+Can you solve the question below? Explain your reasoning step by step. Write a letter as your final answer, in the form ```Answer: {letter}```, at the end of your response.
+
+Question: ```When a spaceship full of scientists landed on Planet Q, they found that $\frac{17}{40}$ of the $160$ aliens had $3$ eyes. How many aliens had $3$ eyes?
+A. 67
+B. 35
+C. 36
+D. 68```
+
+Solution: ```Let's think step by step:
+The fraction of aliens with 3 eyes is given as 17/40.
+We can calculate the number of aliens with 3 eyes as follows:
+Number of aliens with 3 eyes = (17/40) * 160
+Simplifying this expression, we get:
+Number of aliens with 3 eyes = (17 * 160) / 40 = 2720 / 40 = 68
+Therefore, the number of aliens on Planet Q who had 3 eyes is 68, closest to answer choice D.
+Answer: D```
+---
+
+Question: ```If f : (x, y) → (x + y, 2y – x) for every coordinate pair in the xy-plane, for what points (x, y) is it true that f : (x, y) → (x, y)?
+A. (0, 0) only
+B. The set of points (x, y) such that x = 0
+C. The set of points (x, y) such that y = 0
+D. The set of points (x, y) such that x = y```
+
+Solution: ```We have that f(x, y) = (x + y, 2y – x).
+The only way for this to equal (x, y) is if x + y = x and 2y – x = y.
+The first equation simplifies to y = 0, and the second equation simplifies to x = 0.
+Therefore, the only point that works is (0,0), closest to answer choice A.
+Answer: A```
+​---
+
+Question: ```Alex grows an initial culture of 100 Rhizopus stolonifer fungi on a sample of bread. 
+She wants to model the growth of the fungi according to the exponential equation A = Pe^(rt), where A is the final number of fungi, P is the initial number, r is the growth rate, and t is time elapsed in hours. 
+If after 5 hours she measures the number of fungi to be 750, what is the value of r?
+A. 0.403
+B. 0.863
+C. 2.015
+D. 4.317```
+
+Solution: ```We are given that the initial number of fungi is P = 100 and after 5 hours, the number of fungi is A = 750.
+Substituting these values into the equation, we have:
+750 = 100e^(5r)
+To solve for r, we can divide both sides of the equation by 100:
+7.5 = e^(5r)
+Next, we take the natural logarithm (ln) of both sides:
+ln(7.5) = ln(e^(5r))
+Using the property of logarithms, we can bring down the exponent:
+ln(7.5) = 5r
+Now, we divide both sides by 5 to isolate r:
+r = ln(7.5) / 5
+We find that r = 0.403
+Therefore, the value of r is approximately 0.403, closest to answer choice A.
+Answer: A```
+​---
+
+Question: ```{QUESTION_PLACEHOLDER}```
+
+Solution: ```

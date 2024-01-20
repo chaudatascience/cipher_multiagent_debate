@@ -1,0 +1,7 @@
+Revise the computer scientist {QUESTION_PLACEHOLDER}'s bullet point biography by incorporating information from other agents' biographies. Emphasize their accomplishments and contributions in the field of computer science, presenting each detail on a separate line.
+
+```{OTHER_SOLUTION_PLACEHOLDER_0}```
+
+```{MY_SOLUTION_PLACEHOLDER}```
+
+Correct answer: ```

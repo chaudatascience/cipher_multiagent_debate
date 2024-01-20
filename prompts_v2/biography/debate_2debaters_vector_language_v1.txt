@@ -1,0 +1,7 @@
+Using these other biographies of {QUESTION_PLACEHOLDER} from other agents as additional advice, update bullet point biography of the computer scientist {QUESTION_PLACEHOLDER} highlighting their contributions and achievements as a computer scientist, with each fact separated with a new line character. 
+
+Agent 1's answer: ```{OTHER_SOLUTION_PLACEHOLDER_0}```
+
+Your answer: ```{MY_SOLUTION_PLACEHOLDER}```
+
+Correct answer: ```

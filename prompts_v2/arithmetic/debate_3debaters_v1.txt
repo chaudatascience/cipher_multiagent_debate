@@ -1,0 +1,59 @@
+Using the solution from other agent as additional information, update your solution to the question to have a correct answer.
+
+Question: ```What is the result of 14+22*27+6-13*18?```
+
+Agent 1's solution: ```14+22*27+6-13*18 = 14+594+6-234 = 608+6-234 = 614-234 = 300
+Answer: 300```
+
+Agent 2's solution: ```14+22*27+6-13*18 = 14+594+6-234 = 608+6-234 = 614-234 = 380
+Answer: 380```
+
+Your solution: ```14+22*27+6-13*18 = 14+594+6-234 = 608+6-234 = 614-234 = 380
+Answer: 380```
+
+Correct solution: ```Let's think step by step:
+14+22*27+6-13*18 = 14+594+6-234 = 608+6-234 = 614-234 = 380
+Answer: 380```
+---
+
+Question: ```What is the result of 23+25*6+23-1*28?```
+
+Agent 1's solution: ```23+25*6+23-1*28 = 23+150+23-28 = 173+23-28 = 196-28 = 168
+Answer: 168```
+
+Agent 2's solution: ```23+25*6+23-1*28 = 23+150+23-28 = 173+23-28 = 196-28 = 168
+Answer: 168```
+
+Your solution: ```23+25*6+23-1*28 = 23+150+23-28 = 170+23-28 = 193-28 = 165
+Answer: 165```
+
+Correct solution: ```Let's think step by step:
+23+25*6+23-1*28 = 23+150+23-28 = 173+23-28 = 196-28 = 168
+Answer: 168```
+---
+
+Question: ```What is the result of 2+22*4+17-4*24?```
+
+Agent 1's solution: ```2+22*4+17-4*24 = 2+80+17-96 = 82+17-96 = 99-96 = 3
+Answer: 3```
+
+Agent 2's solution: ```2+22*4+17-4*24 = 2+88+17-96 = 90+17-96 = 107-96 = 11
+Answer: 11```
+
+Your solution: ```2+22*4+17-4*24 = 2+88+17-96 = 90+17-96 = 105-96 = 9
+Answer: 9```
+
+Correct solution: ```Let's think step by step:
+2+22*4+17-4*24 = 2+88+17-96 = 90+17-96 = 107-96 = 11
+Answer: 11```
+---
+
+Question: ```{QUESTION_PLACEHOLDER}```
+
+Agent 1's solution: ```{OTHER_SOLUTION_PLACEHOLDER_0}```
+
+Agent 2's solution: ```{OTHER_SOLUTION_PLACEHOLDER_1}```
+
+Your solution: ```{MY_SOLUTION_PLACEHOLDER}```
+
+Correct solution: ```Let's think step by step:

@@ -1,0 +1,19 @@
+Calculate the result of the expression step by step. Write your final answer as a numerical number, in the form ```Answer: {number}```, at the end of your response.
+
+Question: ```What is the result of 14+22*27+6-13*18?```
+Solution: ```14+22*27+6-13*18 = 14+594+6-234 = 608+6-234 = 614-234 = 380
+Answer: 380```
+---
+
+Question: ```What is the result of 23+25*6+23-1*28?```
+Solution: ```23+25*6+23-1*28 = 23+150+23-28 = 173+23-28 = 196-28 = 168
+Answer: 168```
+---
+
+Question: ```What is the result of 5+19*12+27-15*28?```
+Solution: ```5+19*12+27-15*28 = 5+228+27-420 = 233+27-420 = 260-420 = -160
+Answer: -160```
+---
+
+Question: ```{QUESTION_PLACEHOLDER}```
+Solution: ```
