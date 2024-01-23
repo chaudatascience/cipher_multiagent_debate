@@ -1,8 +1,4 @@
 import os
-
-# os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-# os.environ["CUDA_VISIBLE_DEVICES"] = "0,5,6,7"  # specify which GPU(s) to be used
-
 import json
 from os.path import join as os_join
 from tqdm import tqdm
@@ -221,22 +217,38 @@ def run_majority_vote(
     top_k_emb: int,
     l2_norm: bool = False,
     early_stop: bool = True,  ## this is used with vector only. i.e., ignored in this function
+    use_ray: bool = False,
 ):
     sol_history_batch_ans_token = defaultdict(list)
 
     print_out("================================================")
     for sol_i in range(n_sols):
-        ## give a direct answer
-        answer_batch, answer_batch_ans_token, prompt_batch = agent.give_first_solutions(
-            questions=questions,
-            temperature=temperature,
-            top_p=top_p,
-            vector_language=False,
-            top_p_emb=top_p_emb,
-            l2_norm=l2_norm,
-            top_k_emb=top_k_emb,
-            early_stop=early_stop,
-        )
+        if not use_ray:
+            ## give a direct answer
+            answer_batch, answer_batch_ans_token, prompt_batch = agent.give_first_solutions(
+                questions=questions,
+                temperature=temperature,
+                top_p=top_p,
+                vector_language=False,
+                top_p_emb=top_p_emb,
+                l2_norm=l2_norm,
+                top_k_emb=top_k_emb,
+                early_stop=early_stop,
+            )
+        else:
+            handler = agent.give_first_solutions.remote(
+                questions=questions,
+                temperature=temperature,
+                top_p=top_p,
+                vector_language=False,
+                top_p_emb=top_p_emb,
+                l2_norm=l2_norm,
+                top_k_emb=top_k_emb,
+                early_stop=early_stop,
+                convert_to_cpu=True,
+            )
+            res_tmp = ray.get(handler)
+            answer_batch, answer_batch_ans_token, prompt_batch = res_tmp
         if sol_i == 0:
             print_out(f"\n========={agent_name}: prompt sol: \n{prompt_batch}=========")
 
@@ -629,6 +641,7 @@ def debate_helper(args, dataloader, agents: Optional[Dict] = None):
                 top_p=top_p,
                 top_p_emb=top_p_emb,
                 top_k_emb=top_k_emb,
+                use_ray=n_ray_actors > 1
             )
         else:
             res_dict = run_multiagent_debate(
