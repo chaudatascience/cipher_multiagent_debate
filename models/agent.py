@@ -12,6 +12,8 @@ from optimum.bettertransformer import BetterTransformer
 # from models.llama_hf import LlamaHFv1
 
 from copy import deepcopy
+from models.utils import *
+
 import torch
 from torch import Tensor
 import torch.nn.functional as F
@@ -521,6 +523,7 @@ class Agent:
         token_embs = [self.emb_table(token) for token in prompt_tokens]
         return token_embs
 
+    @torch.inference_mode()
     def _generate_tokens(self, prompt_tokens: List[Tensor], temperature: float, top_p: float) -> Tensor:
         bsz = len(prompt_tokens)
 
@@ -566,11 +569,16 @@ class Agent:
                         past_key_values=past_key_values,
                         use_cache=True,
                     )  ## (b, 32000)
+                else:
+                    raise ValueError(f"Haven't supported for engine {self.engine}")
 
                 logits, past_key_values = (
-                    outputs.logits[:, -1, :],  ## type: ignore
-                    outputs.past_key_values,  ## type: ignore
+                    outputs.logits[:, -1, :].clone(),  ## type: ignore
+                    deepcopy(outputs.past_key_values),  ## type: ignore
                 )  ## type: ignore
+                del outputs
+                clear_gpu_mem(verbose=False)
+
                 if temperature > 0:
                     probs = torch.softmax(logits / temperature, dim=-1)  ## (b, 32000)
                 else:
