@@ -1,7 +1,7 @@
 # Let Models Speak Ciphers: Multiagent Debate through Embeddings
 
 
-This code provides a Pytorch implementation for the paper titled [Let Models Speak Ciphers: Multiagent Debate through Embeddings](https://arxiv.org/abs/2310.06272). 
+This code provides an unofficial Pytorch implementation for the paper titled [Let Models Speak Ciphers: Multiagent Debate through Embeddings](https://arxiv.org/abs/2310.06272). 
 
 ```
 @InProceedings{phamCIPHER2024,
@@ -117,7 +117,7 @@ python run_debate.py -p 5 -d gsm8k  --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 
 
 ### 1.2. CIPHER
 ```
-python run_debate.py -p 5 -d gsm8k --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 1 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_vector_language_v1.txt -v --temperature_max 2.0 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/test_gsm8k_full.jsonl --n_questions 200 --point_path probe_points/gsm8k_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 2
+python run_debate.py -p 5 -d gsm8k --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_vector_language_v1.txt -v --temperature_max 2.0 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/test_gsm8k_full.jsonl --n_questions 200 --point_path probe_points/gsm8k_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 2
 ```
 
 ### 1.3. Majority Voting
@@ -138,7 +138,7 @@ python run_debate.py -p 5 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf
 
 ### 2.2. CIPHER
 ```
-python run_debate.py -p 5 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 1 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_vector_language_v1.txt -v --temperature_max 2.0 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --point_path probe_points/arithmetic_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 1
+python run_debate.py -p 5 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 20 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_vector_language_v1.txt -v --temperature_max 2.0 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --point_path probe_points/arithmetic_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 1
 ```
 
 ### 2.3. Majority Voting
@@ -159,7 +159,7 @@ python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12
 
 ### 3.2. CIPHER
 ```
-python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 1 --initial_prompt_paths prompts_v2/mmlu/init_professional_psychology_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_professional_psychology_2debaters_vector_language_v1.txt -v --max_new_tokens 400 --n_rounds 3 --temperature_max 2.0 --n_questions 200 --data_path data/mmlu/test/professional_psychology_test.csv --point_path probe_points/psychology_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 2
+python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12 --initial_prompt_paths prompts_v2/mmlu/init_professional_psychology_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_professional_psychology_2debaters_vector_language_v1.txt -v --max_new_tokens 400 --n_rounds 3 --temperature_max 2.0 --n_questions 200 --data_path data/mmlu/test/professional_psychology_test.csv --point_path probe_points/psychology_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 2
 ```
 
 ### 3.3. Majority Voting
@@ -180,7 +180,7 @@ python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12
 
 ### 4.2. CIPHER
 ```
-python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 1 --initial_prompt_paths prompts_v2/mmlu/init_high_school_mathematics_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_high_school_mathematics_2debaters_vector_language_v1.txt -v --max_new_tokens 400 --n_rounds 3  --data_path data/mmlu/test/high_school_mathematics_test.csv --point_path probe_points/math_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 2
+python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12 --initial_prompt_paths prompts_v2/mmlu/init_high_school_mathematics_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_high_school_mathematics_2debaters_vector_language_v1.txt -v --max_new_tokens 400 --n_rounds 3  --data_path data/mmlu/test/high_school_mathematics_test.csv --point_path probe_points/math_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 2
 ```
 
 For Majority Voting and Single Answer, you can use similar commands as in MMLU Psychology.
@@ -193,7 +193,7 @@ python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12
 
 ### 5.2. CIPHER
 ```
-python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 1 --initial_prompt_paths prompts_v2/mmlu/init_fomal_logic_v2.txt --debate_prompt_paths prompts_v2/mmlu/debate_fomal_logic_2debaters_vector_language_2.txt -v --temperature_max 2.0 --max_new_tokens 400 --n_rounds 3 --data_path data/mmlu/test/formal_logic_test.csv --n_questions 126 --point_path probe_points/logic_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 2
+python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12 --initial_prompt_paths prompts_v2/mmlu/init_fomal_logic_v2.txt --debate_prompt_paths prompts_v2/mmlu/debate_fomal_logic_2debaters_vector_language_2.txt -v --temperature_max 2.0 --max_new_tokens 400 --n_rounds 3 --data_path data/mmlu/test/formal_logic_test.csv --n_questions 126 --point_path probe_points/logic_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 2
 ```
 
 # II. Table 1 for LLaMA1-65B
