@@ -122,7 +122,7 @@ python run_debate.py -p 5 -d gsm8k --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8
 
 ### 1.3. Majority Voting
 ```
-python run_debate.py -p 3 -d gsm8k  --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 400 --n_rounds 1 --n_sols_each_ques 5 --data_path data/gsm/test_gsm8k_full.jsonl --n_questions 200 --n_gpus_per_actor 4 --n_ray_actors 2 --temperatures 0.8,0.8
+python run_debate.py -p 5 -d gsm8k  --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 400 --n_rounds 1 --n_sols_each_ques 5 --data_path data/gsm/test_gsm8k_full.jsonl --n_questions 200 --n_gpus_per_actor 4 --n_ray_actors 2 --temperatures 0.8,0.8
 ```
 
 ### 1.4. Single Answer
@@ -143,7 +143,7 @@ python run_debate.py -p 5 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf
 
 ### 2.3. Majority Voting
 ```
-python run_debate.py -p 3 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 20 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 120 --n_rounds 1 --n_sols_each_ques 5 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --n_gpus_per_actor 4 --n_ray_actors 1 --temperatures 0.6,0.6
+python run_debate.py -p 5 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 20 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 120 --n_rounds 1 --n_sols_each_ques 5 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --n_gpus_per_actor 4 --n_ray_actors 1 --temperatures 0.6,0.6
 ```
 
 ### 2.4. Single Answer
@@ -164,7 +164,7 @@ python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12
 
 ### 3.3. Majority Voting
 ```
-python run_debate.py -p 3 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12 --initial_prompt_paths prompts_v2/mmlu/init_professional_psychology_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_professional_psychology_2debaters_v1.txt --max_new_tokens 400 --n_rounds 1 --n_sols_each_ques 5 --temperature_max 2.0 --n_questions 200 --data_path data/mmlu/test/professional_psychology_test.csv --n_gpus_per_actor 4 --n_ray_actors 2 --temperatures 0.3,0.3
+python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12 --initial_prompt_paths prompts_v2/mmlu/init_professional_psychology_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_professional_psychology_2debaters_v1.txt --max_new_tokens 400 --n_rounds 1 --n_sols_each_ques 5 --temperature_max 2.0 --n_questions 200 --data_path data/mmlu/test/professional_psychology_test.csv --n_gpus_per_actor 4 --n_ray_actors 2 --temperatures 0.3,0.3
 ```
 
 ### 3.4. Single Answer

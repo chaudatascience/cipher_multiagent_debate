@@ -641,7 +641,7 @@ def debate_helper(args, dataloader, agents: Optional[Dict] = None):
                 top_p=top_p,
                 top_p_emb=top_p_emb,
                 top_k_emb=top_k_emb,
-                use_ray=n_ray_actors > 1
+                use_ray=n_ray_actors > 1,
             )
         else:
             res_dict = run_multiagent_debate(
@@ -694,11 +694,9 @@ def debate(args: Optional[Namespace] = None, agents: Optional[Dict] = None) -> s
 
     if args is None:
         args = get_args()
-
     print(args)
 
     n_ques = args.n_questions
-
     data_path = args.data_path
     batch_size = args.batch_size
     dataset_name = args.dataset
@@ -898,6 +896,7 @@ if __name__ == "__main__":
         yaml_config = yaml.safe_load(yaml_file)
 
     args = get_args()
+    print("asdfadfadsfasdfasd", args)
     original_seed = args.seed
 
     args.root_dir = yaml_config["root_dir"]
@@ -916,12 +915,15 @@ if __name__ == "__main__":
             if args.temperatures == []:
                 temp_points_list = get_search_space(args)
             else:
-                temp_points_list = [args.temperatures] * args.num_points
+                temp_points_list = [args.temperatures for _ in range(args.num_points)]
             print_out(f"-----++++++++++++ temp_points: {temp_points_list}")
 
             for i, temp_points in enumerate(temp_points_list):
                 print_out(f"================== point {i+1}/{len(temp_points_list)} ==================")
-                args.temperatures = duplicate_temp(args.n_rounds, len(args.debaters), temp_points)
+                if len(temp_points) < len(args.debaters) * args.n_rounds:
+                    args.temperatures = duplicate_temp(args.n_rounds, len(args.debaters), temp_points)
+                else:
+                    args.temperatures = temp_points
                 if original_seed is None:
                     args.seed = random.randint(100, 100000)
                 debate(args)
