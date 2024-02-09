@@ -896,7 +896,6 @@ if __name__ == "__main__":
         yaml_config = yaml.safe_load(yaml_file)
 
     args = get_args()
-    print("asdfadfadsfasdfasd", args)
     original_seed = args.seed
 
     args.root_dir = yaml_config["root_dir"]
