@@ -88,7 +88,7 @@ Here are some key arguments and their descriptions for clarity:
 
 `--n_rounds`: Specifies the number of rounds for the debate. The default is 3 rounds, which includes 1 initial round and 2 debate rounds.
 
-`--data_path`: Specifies the path to the dataset, such as "data/gsm/test_gsm8k_full.jsonl".
+`--data_path`: Specifies the path to the dataset, such as "data/gsm/gsm8k_split_test200ques.jsonl".
 
 `--n_questions`: Controls the number of questions to be sampled from the dataset. For example, in GSM8K, you can sample 200 questions from the dataset by setting this parameter to 200.
 
@@ -112,64 +112,64 @@ These commands serve as examples for conducting the experiments described in the
 ## 1. GSM8K
 ### 1.1. NLD 
 ```
-python run_debate.py -p 5 -d gsm8k  --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/test_gsm8k_full.jsonl --n_questions 200 --point_path probe_points/gsm8k_NLD.txt --n_gpus_per_actor 4 --n_ray_actors 2
+python run_debate.py -p 5 -d gsm8k  --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/gsm8k_split_test200ques.jsonl --n_questions 200 --point_path probe_points/gsm8k_NLD.txt --n_gpus_per_actor 4 --n_ray_actors 2
 ```
 
 ### 1.2. CIPHER
 ```
-python run_debate.py -p 5 -d gsm8k --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_vector_language_v1.txt -v --temperature_max 2.0 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/test_gsm8k_full.jsonl --n_questions 200 --point_path probe_points/gsm8k_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 2
+python run_debate.py -p 5 -d gsm8k --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_vector_language_v1.txt -v --temperature_max 2.0 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/gsm8k_split_test200ques.jsonl --n_questions 200 --point_path probe_points/gsm8k_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 2
 ```
 
 ### 1.3. Majority Voting
 ```
-python run_debate.py -p 5 -d gsm8k  --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 400 --n_rounds 1 --n_sols_each_ques 5 --data_path data/gsm/test_gsm8k_full.jsonl --n_questions 200 --n_gpus_per_actor 4 --n_ray_actors 2 --temperatures 0.8,0.8
+python run_debate.py -p 5 -d gsm8k  --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 400 --n_rounds 1 --n_sols_each_ques 5 --data_path data/gsm/gsm8k_split_test200ques.jsonl --n_questions 200 --n_gpus_per_actor 4 --n_ray_actors 2 --temperatures 0.8,0.8
 ```
 
 ### 1.4. Single Answer
 ```
-python run_debate.py -p 3 -d gsm8k  --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 400 --n_rounds 1 --n_sols_each_ques 1 --data_path data/gsm/test_gsm8k_full.jsonl --n_questions 200 --n_gpus_per_actor 4 --n_ray_actors 2 --temperatures 0.15,0.15
+python run_debate.py -p 3 -d gsm8k  --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 400 --n_rounds 1 --n_sols_each_ques 1 --data_path data/gsm/gsm8k_split_test200ques.jsonl --n_questions 200 --n_gpus_per_actor 4 --n_ray_actors 2 --temperatures 0.15,0.15
 ```
 
 ## 2. Arithmetic
 ### 2.1. NLD
 ```
-python run_debate.py -p 5 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 20 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --point_path probe_points/arithmetic_NLD.txt --n_gpus_per_actor 4 --n_ray_actors 1
+python run_debate.py -p 5 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 20 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/arithmetic_test200ques.jsonl --n_questions 200 --point_path probe_points/arithmetic_NLD.txt --n_gpus_per_actor 4 --n_ray_actors 1
 ```
 
 ### 2.2. CIPHER
 ```
-python run_debate.py -p 5 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 20 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_vector_language_v1.txt -v --temperature_max 2.0 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --point_path probe_points/arithmetic_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 1
+python run_debate.py -p 5 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 20 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_vector_language_v1.txt -v --temperature_max 2.0 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/arithmetic_test200ques.jsonl --n_questions 200 --point_path probe_points/arithmetic_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 1
 ```
 
 ### 2.3. Majority Voting
 ```
-python run_debate.py -p 5 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 20 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 120 --n_rounds 1 --n_sols_each_ques 5 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --n_gpus_per_actor 4 --n_ray_actors 1 --temperatures 0.6,0.6
+python run_debate.py -p 5 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 20 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 120 --n_rounds 1 --n_sols_each_ques 5 --data_path data/arithmetic/arithmetic_test200ques.jsonl --n_questions 200 --n_gpus_per_actor 4 --n_ray_actors 1 --temperatures 0.6,0.6
 ```
 
 ### 2.4. Single Answer
 ```
-python run_debate.py -p 3 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 20 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 120 --n_rounds 1 --n_sols_each_ques 1 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --n_gpus_per_actor 4 --n_ray_actors 1 --temperatures 0.35,0.35
+python run_debate.py -p 3 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 20 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 120 --n_rounds 1 --n_sols_each_ques 1 --data_path data/arithmetic/arithmetic_test200ques.jsonl --n_questions 200 --n_gpus_per_actor 4 --n_ray_actors 1 --temperatures 0.35,0.35
 ```
 
 ## 3. MMLU Psychology
 ### 3.1. NLD
 ```
-python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12 --initial_prompt_paths prompts_v2/mmlu/init_professional_psychology_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_professional_psychology_2debaters_v1.txt --max_new_tokens 400 --n_rounds 3 --temperature_max 2.0 --n_questions 200 --data_path data/mmlu/test/professional_psychology_test.csv --point_path probe_points/psychology_NLD.txt --n_gpus_per_actor 4 --n_ray_actors 2
+python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12 --initial_prompt_paths prompts_v2/mmlu/init_professional_psychology_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_professional_psychology_2debaters_v1.txt --max_new_tokens 400 --n_rounds 3 --temperature_max 2.0 --n_questions 200 --data_path data/mmlu/test/professional_psychology_split_testset_200questions.csv --point_path probe_points/psychology_NLD.txt --n_gpus_per_actor 4 --n_ray_actors 2
 ```
 
 ### 3.2. CIPHER
 ```
-python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12 --initial_prompt_paths prompts_v2/mmlu/init_professional_psychology_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_professional_psychology_2debaters_vector_language_v1.txt -v --max_new_tokens 400 --n_rounds 3 --temperature_max 2.0 --n_questions 200 --data_path data/mmlu/test/professional_psychology_test.csv --point_path probe_points/psychology_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 2
+python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12 --initial_prompt_paths prompts_v2/mmlu/init_professional_psychology_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_professional_psychology_2debaters_vector_language_v1.txt -v --max_new_tokens 400 --n_rounds 3 --temperature_max 2.0 --n_questions 200 --data_path data/mmlu/test/professional_psychology_split_testset_200questions.csv --point_path probe_points/psychology_cipher.txt --n_gpus_per_actor 4 --n_ray_actors 2
 ```
 
 ### 3.3. Majority Voting
 ```
-python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12 --initial_prompt_paths prompts_v2/mmlu/init_professional_psychology_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_professional_psychology_2debaters_v1.txt --max_new_tokens 400 --n_rounds 1 --n_sols_each_ques 5 --temperature_max 2.0 --n_questions 200 --data_path data/mmlu/test/professional_psychology_test.csv --n_gpus_per_actor 4 --n_ray_actors 2 --temperatures 0.3,0.3
+python run_debate.py -p 5 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12 --initial_prompt_paths prompts_v2/mmlu/init_professional_psychology_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_professional_psychology_2debaters_v1.txt --max_new_tokens 400 --n_rounds 1 --n_sols_each_ques 5 --temperature_max 2.0 --n_questions 200 --data_path data/mmlu/test/professional_psychology_split_testset_200questions.csv --n_gpus_per_actor 4 --n_ray_actors 2 --temperatures 0.3,0.3
 ```
 
 ### 3.4. Single Answer
 ```
-python run_debate.py -p 3 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12 --initial_prompt_paths prompts_v2/mmlu/init_professional_psychology_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_professional_psychology_2debaters_v1.txt --max_new_tokens 400 --n_rounds 1 --n_sols_each_ques 1 --temperature_max 2.0 --n_questions 200 --data_path data/mmlu/test/professional_psychology_test.csv --n_gpus_per_actor 4 --n_ray_actors 2 --temperatures 0.33,0.33
+python run_debate.py -p 3 -d mmlu --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 12 --initial_prompt_paths prompts_v2/mmlu/init_professional_psychology_v1.txt --debate_prompt_paths prompts_v2/mmlu/debate_professional_psychology_2debaters_v1.txt --max_new_tokens 400 --n_rounds 1 --n_sols_each_ques 1 --temperature_max 2.0 --n_questions 200 --data_path data/mmlu/test/professional_psychology_split_testset_200questions.csv --n_gpus_per_actor 4 --n_ray_actors 2 --temperatures 0.33,0.33
 ```
 
 ## 4. MMLU Math
@@ -204,7 +204,7 @@ For LLaMA1-65B, you can use similar commands with `--debaters llama_65B,llama_65
 To run this, first you need to store emb table (embed_tokens) of LLaMa1 and LLaMA2 in `emb_weights` folder as `llama-2-70b-hf.pt` and `llama_65b.pt`. Afterward, you can proceed by executing the command below, using the Arithmetic dataset as an example:
 
 ```
-python run_debate.py -p 4 -d arithmetic --debaters Llama-2-70b-hf,llama_65B -b 8 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --n_ray_actors 1
+python run_debate.py -p 4 -d arithmetic --debaters Llama-2-70b-hf,llama_65B -b 8 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_v1.txt --temperature_max 2.0 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/arithmetic_test200ques.jsonl --n_questions 200 --n_ray_actors 1
 ```
 
 # IV. GSM8K on different models (Figure 3)
@@ -213,14 +213,14 @@ Examples:
 
 ## GSM8K WizardMath
 ```
-python run_debate.py -p 6 -d gsm8k --debaters WizardMath-70B-V1.0,WizardMath-70B-V1.0 -b 8 --initial_prompt_paths prompts_v2/gsm8k/init_wizardmath.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_wizardmath_vector_language.txt -v --temperature_max 0.85 --max_new_tokens 500 --n_rounds 3 --data_path data/gsm/test_gsm8k_full.jsonl --n_questions 200 --n_ray_actors 1 --seed 232495 
+python run_debate.py -p 6 -d gsm8k --debaters WizardMath-70B-V1.0,WizardMath-70B-V1.0 -b 8 --initial_prompt_paths prompts_v2/gsm8k/init_wizardmath.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_wizardmath_vector_language.txt -v --temperature_max 0.85 --max_new_tokens 500 --n_rounds 3 --data_path data/gsm/gsm8k_split_test200ques.jsonl --n_questions 200 --n_ray_actors 1 --seed 232495 
 ```
 
 
 ## GSM8k Falcon 
 
 ```
-python run_debate.py -p 4 -d gsm8k --debaters falcon-40b-instruct,falcon-40b-instruct -b 6 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_v1.txt --temperature_max 0.85 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/test_gsm8k_full.jsonl --n_questions 400 --n_ray_actors 1 
+python run_debate.py -p 4 -d gsm8k --debaters falcon-40b-instruct,falcon-40b-instruct -b 6 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_v1.txt --temperature_max 0.85 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/gsm8k_split_test200ques.jsonl --n_questions 400 --n_ray_actors 1 
 ```
 
 
@@ -229,27 +229,27 @@ python run_debate.py -p 4 -d gsm8k --debaters falcon-40b-instruct,falcon-40b-ins
 **Entropy**
 
 ```
-python run_debate.py -p 3 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 16 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_vector_language_v1.txt -v --temperature_max 1.5 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --partial_cipher_when_confident --partial_entropy_over_max --partial_thres 1.869
+python run_debate.py -p 3 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 16 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_vector_language_v1.txt -v --temperature_max 1.5 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/arithmetic_test200ques.jsonl --n_questions 200 --partial_cipher_when_confident --partial_entropy_over_max --partial_thres 1.869
 ```
 
 
 **Max**
 
 ```
-python run_debate.py -p 3 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 5 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_vector_language_v1.txt -v --temperature_max 2.0 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --n_gpus_per_actor 4 --partial_cipher_when_not_confident --partial_thres 0.8
+python run_debate.py -p 3 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 5 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_vector_language_v1.txt -v --temperature_max 2.0 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/arithmetic_test200ques.jsonl --n_questions 200 --n_gpus_per_actor 4 --partial_cipher_when_not_confident --partial_thres 0.8
 ```
 
 **Entropy reversed**
 
 ```
-python run_debate.py -p 3 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 16 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_vector_language_v1.txt -v --temperature_max 1.5 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --partial_cipher_when_not_confident --partial_entropy_over_max --partial_thres 1.869
+python run_debate.py -p 3 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 16 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_vector_language_v1.txt -v --temperature_max 1.5 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/arithmetic_test200ques.jsonl --n_questions 200 --partial_cipher_when_not_confident --partial_entropy_over_max --partial_thres 1.869
 ```
 
 
 **Max reversed**
 
 ```
-python run_debate.py -p 3 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 5 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_vector_language_v1.txt -v --temperature_max 2.0 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --n_gpus_per_actor 4 --partial_cipher_when_confident --partial_thres 0.8
+python run_debate.py -p 3 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 5 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_vector_language_v1.txt -v --temperature_max 2.0 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/arithmetic_test200ques.jsonl --n_questions 200 --n_gpus_per_actor 4 --partial_cipher_when_confident --partial_thres 0.8
 ```
 
 
@@ -259,7 +259,7 @@ python run_debate.py -p 3 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf
 Example with Natural Language Debate:
 
 ```
-python run_debate.py -p 4 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_v1.txt --temperature_max 1.5 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/test_seed23.jsonl --n_questions 200 --n_ray_actors 1 --positional_bias
+python run_debate.py -p 4 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf -b 8 --initial_prompt_paths prompts_v2/arithmetic/init_prompt.txt --debate_prompt_paths prompts_v2/arithmetic/debate_2debaters_v1.txt --temperature_max 1.5 --max_new_tokens 120 --n_rounds 3 --data_path data/arithmetic/arithmetic_test200ques.jsonl --n_questions 200 --n_ray_actors 1 --positional_bias
 ```
 
 
@@ -270,20 +270,20 @@ python run_debate.py -p 4 -d arithmetic --debaters Llama-2-70b-hf,Llama-2-70b-hf
 ## 1. Dummy expert (swap groud truth (gt) with other gt in the same batch to confuse the other debater)
 
 ```
-python run_debate.py -p 3 -d gsm8k --debaters Llama-2-70b-hf,Llama-2-70b-hf_dummy_expert -b 12 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_vector_language_v1.txt -v --temperature_max 0.85 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/test_gsm8k_full.jsonl --n_questions 400 --n_ray_actors 1 
+python run_debate.py -p 3 -d gsm8k --debaters Llama-2-70b-hf,Llama-2-70b-hf_dummy_expert -b 12 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_vector_language_v1.txt -v --temperature_max 0.85 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/gsm8k_split_test200ques.jsonl --n_questions 400 --n_ray_actors 1 
 ```
 
 ## 2. Expert (always return ground truth answers)
 
 ```
-python run_debate.py -p 4 -d gsm8k --debaters Llama-2-7b-hf,Llama-2-7b-hf_expert -b 12 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_vector_language_v1.txt -v --temperature_max 0.7 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/test_gsm8k_full.jsonl --n_questions 400 --n_ray_actors 1 
+python run_debate.py -p 4 -d gsm8k --debaters Llama-2-7b-hf,Llama-2-7b-hf_expert -b 12 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_vector_language_v1.txt -v --temperature_max 0.7 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/gsm8k_split_test200ques.jsonl --n_questions 400 --n_ray_actors 1 
 ```
 
 
 ## 3. Dummy high temperature (random responses due to extremely high temperature)
 
 ```
-python run_debate.py -p 4 -d gsm8k --debaters Llama-2-7b-hf,Llama-2-7b-hf -b 12 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_vector_language_v1.txt -v --temperature_max 0.7 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/test_gsm8k_full.jsonl --n_questions 400 --n_ray_actors 1 
+python run_debate.py -p 4 -d gsm8k --debaters Llama-2-7b-hf,Llama-2-7b-hf -b 12 --initial_prompt_paths prompts_v2/gsm8k/init_question_3shot_v3.txt --debate_prompt_paths prompts_v2/gsm8k/debate_2debaters_vector_language_v1.txt -v --temperature_max 0.7 --max_new_tokens 400 --n_rounds 3 --data_path data/gsm/gsm8k_split_test200ques.jsonl --n_questions 400 --n_ray_actors 1 
 ```
 
 
